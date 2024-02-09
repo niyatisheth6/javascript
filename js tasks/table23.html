@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Convert JSON Data to HTML Table</title>
+<style>
+        th, td, p, input {
+            font:14px Verdana;
+        }
+        table, th, td
+        {
+            border: solid 1px #DDD;
+            border-collapse: collapse;
+            padding: 2px 3px;
+            text-align: center;
+        }
+        th {
+            font-weight:bold;
+        }
+</style>
+</head>
+<body>
+<input type="button" onclick="CreateTableFromJSON()" value="Create Table From JSON" />
+<p id="showData"></p>
+</body>
+<script>
+    
+   function createRowHTML() {
+    var tableContent = "";
+    for (var result = 0; result < data.result.length; result++) {
+        // calculate rowspan for first cell
+        var rowspan = 0;
+        var detailLength = data.result[result].RMP_MASTER_WILAYAH_detail.length;
+        rowspan += detailLength;
+        for (var i = 0; i < detailLength; i++) {
+            rowspan += data.result[result].RMP_MASTER_WILAYAH_detail[i].RMP_MASTER_WILAYAH_relasi.length;
+        }
+
+        // create rows
+        tableContent += "<tr><td rowspan=" + parseInt(1 + rowspan) + ">" + data.result[result].RMP_MASTER_WILAYAH_KODE + "</td></tr>";
+        var relasiLength = 0;
+        for (var i = 0; i < detailLength; i++) {
+            relasiLength = data.result[result].RMP_MASTER_WILAYAH_detail[i].RMP_MASTER_WILAYAH_relasi.length;
+            tableContent += "<tr><td rowspan=" + parseInt(1 + relasiLength) + ">"
+                + data.result[result].RMP_MASTER_WILAYAH_detail[i].RMP_MASTER_WILAYAH + "</td></tr>";
+            for (var j = 0; j < relasiLength; j++) {
+                tableContent += "<tr><td>" + data.result[result].RMP_MASTER_WILAYAH_detail[i].RMP_MASTER_WILAYAH_relasi[j].RMP_MASTER_PERSONAL_NAMA + "</td></tr>";
+            }
+        }
+    }
+    $("tbody#zone_data").append(tableContent);
+}
+$(function () {
+    createRowHTML();
+});
+</script>
+</html>

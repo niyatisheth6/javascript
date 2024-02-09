@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>profile</title>
+    <style>
+      img {
+        width: 150px;
+        height: 150px;
+        display: none;
+        margin-top: 20px;
+        border-radius: 200px;
+      }
+    </style>
+  </head>
+  <body>
+    <input type="file" id="file1" name="choose-file" accept="image/*" onchange="getImage(event)"/>
+    <img id="image" alt="" />
+    <script>
+     function getImage(e){
+        const image = document.getElementById("image");
+        const file1 = document.getElementById("file1");
+        image.src = URL.createObjectURL(e.target.files[0])
+        console.log(image.src)
+
+
+     }
+    </script>
+  </body>
+</html>

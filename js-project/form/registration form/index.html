@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="title">Registration</div>
+      <div class="content">
+        <form action="#">
+          <div class="user-details">
+            <div class="input-box">
+              <span class="details">First Name</span>
+              <input
+                class="required"
+                name="firstname"
+                type="text"
+                placeholder="Enter your name"
+              />
+              <p id="firstname_error"></p>
+            </div>
+            <div class="input-box">
+              <span class="details">Username</span>
+              <input
+                class="required"
+                name="username"
+                type="text"
+                placeholder="Enter your username"
+              />
+              <p id="username_error"></p>
+            </div>
+            <div class="input-box">
+              <span class="details">Email</span>
+              <input
+                class="required"
+                name="email"
+                type="text"
+                placeholder="Enter your email"
+              />
+              <p id="email_error"></p>
+            </div>
+            <div class="input-box">
+              <span class="details">Phone Number</span>
+              <input
+                class="required"
+                name="phone"
+                type="text"
+                placeholder="Enter your number"
+                maxlength="10"
+              />
+              <p id="phone_error"></p>
+            </div>
+            <div class="input-box">
+              <span class="details">Password</span>
+              <input
+                class="required"
+                name="password"
+                type="password"
+                placeholder="Enter your password"
+                id="password"
+              />
+              <p id="password_error"></p>
+            </div>
+            <div class="input-box">
+              <span class="details">Confirm Password</span>
+              <input
+                class="required"
+                name="cpassword"
+                type="password"
+                placeholder="Confirm your password"
+              />
+              <p id="cpassword_error"></p>
+            </div>
+            
+          </div>
+          <div class="gender-details">
+            <input type="radio" name="gender" id="dot-1" class="required gender_selection"/>
+            <input type="radio" name="gender" id="dot-2" class="gender_selection"/>
+            <input type="radio" name="gender" id="dot-3" class="gender_selection"/>
+            <span class="gender-title">Gender</span>
+            <div class="category">
+              <label for="dot-1">
+                <span class="dot one"></span>
+                <span class="gender">Male</span>
+              </label>
+              <label for="dot-2">
+                <span class="dot two"></span>
+                <span class="gender">Female</span>
+              </label>
+              <label for="dot-3">
+                <span class="dot three"></span>
+                <span class="gender">Prefer not to say</span>
+              </label>
+            </div>
+            <p id="gender_error"></p>
+          </div>
+          <div class="button">
+            <input type="button" value="Register" />
+          </div>
+        </form>
+      </div>
+    </div>
+    <script src="index.js"></script>
+  </body>
+</html>

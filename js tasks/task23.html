@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>task-23</title>
+    <style>
+      table {
+        border: 1px solid black;
+      }
+
+      td,
+      th {
+        padding: 20px;
+        border: 1px solid black;
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <table id="user">
+      <thead></thead>
+      <tbody></tbody>
+    </table>
+
+    <script>
+      console.clear();
+
+      var data = [
+        {
+          Mainland: ["Asia"],
+          Country: ["Japan"],
+          City: ["Tokyo"],
+        },
+        {
+          Mainland: ["North America"],
+          Country: ["Mexico"],
+          City: ["Mexico City"],
+        },
+        {
+          Mainland: ["Asia"],
+          Country: ["India"],
+          City: ["Ahmedabad"],
+        },
+        {
+          Mainland: ["Asia"],
+          Country: ["India"],
+          City: ["Surat"],
+        },
+        {
+          Mainland: ["Asia"],
+          Country: ["Japan"],
+          City: ["Kyoto"],
+        },
+      ];
+
+      const transformData = (data) => {
+        let t = {};
+
+        data.forEach((item, index, source) => {
+          let l1 = item.Mainland,
+            l2 = item.Country,
+            l3 = item.City;
+          t[l1] = t[l1] || { text: l1, content: {}, count: 0 };
+          t[l1].content[l2] = t[l1].content[l2] || {
+            text: l2,
+            content: {},
+            count: 0,
+          };
+          t[l1].content[l2].content[l3] = t[l1].content[l2].content[l3] || {
+            text: l3,
+            content: {},
+            count: 0,
+          };
+          t[l1].count++;
+          t[l1].content[l2].count++;
+          t[l1].content[l2].content[l3].count++;
+        });
+        return t;
+      };
+
+      const transformDataTable = (
+        tdata,
+        sort = (a, b) => b - a,
+        sort1 = sort,
+        sort2 = sort1
+      ) => {
+        const table = document.createElement("table");
+
+        for (l1 of Object.keys(tdata).sort(sort)) {
+          const td1 = document.createElement("th");
+          td1.textContent = tdata[l1].text;
+          td1.setAttribute("rowspan", tdata[l1].count);
+          let done1 = false;
+
+          for (l2 of Object.keys(tdata[l1].content).sort(sort1)) {
+            const td2 = document.createElement("td");
+            td2.textContent = tdata[l1].content[l2].text;
+            td2.setAttribute("rowspan", tdata[l1].content[l2].count);
+            let done2 = false;
+
+            for (l3 of Object.keys(tdata[l1].content[l2].content).sort(sort2)) {
+              const td3 = document.createElement("td");
+              td3.textContent = tdata[l1].content[l2].content[l3].text;
+              td3.setAttribute(
+                "rowspan",
+                tdata[l1].content[l2].content[l3].count
+              );
+              const tr = document.createElement("tr");
+              !done1 && tr.appendChild(td1) && (done1 = true);
+              !done2 && tr.appendChild(td2) && (done2 = true);
+              tr.appendChild(td3);
+              table.appendChild(tr);
+            }
+          }
+        }
+        return table;
+      };
+
+      const asc = (a, b) => b - a;
+      const desc = (a, b) => a - b;
+
+      const tdata = transformData(data);
+      const table = transformDataTable(tdata, desc, asc);
+
+      document.body.appendChild(table);
+    </script>
+  </body>
+</html>

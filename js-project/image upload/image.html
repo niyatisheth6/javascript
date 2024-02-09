@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>profile</title>
+    <style>
+      img {
+        width: 150px;
+        height: 150px;
+        display: none;
+        margin-top: 20px;
+        border-radius: 200px;
+      }
+    </style>
+  </head>
+  <body>
+    <input type="file" id="choose-file" name="choose-file" accept="image/*" />
+    <img id="preview" alt="" />
+    <script>
+      const chooseFile = document.getElementById("choose-file");
+      const preview = document.getElementById("preview");
+
+      chooseFile.addEventListener("change", function () {
+        getImgData();
+      });
+      function getImgData() {
+        const files = chooseFile.files[0];
+        if (files) {
+          const fileRender = new FileReader();
+          fileRender.readAsDataURL(files);
+          fileRender.addEventListener("load", function (e) {
+            preview.setAttribute("src", e.target.result);
+            preview.style.display = "block";
+          });
+        }
+      }
+    </script>
+  </body>
+</html>

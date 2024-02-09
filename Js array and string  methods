@@ -1,0 +1,152 @@
+==========String  and Array methods==============
+
+----INDEX----
+
+
+====RETURN INDEX NUMBER AND STRING IS NOT PRESENT THEN RETURN -1
+--in string----
+    lastIndexOf()   ---> both string and array
+    findIndex(function(currentValue, index, arr), thisValue)
+
+
+
+-------------------------------------------------
+====RETURN TRUE AND FALSE VALUE====
+---------string-------------
+    includes()       ---> both string and array
+    every(function_name)
+    isArray(variable_name) 
+-------------------------------------------- 
+   
+   
+
+----ADD ANOTHER STRING----
+
+    b= string1 + string2
+----CONCAT ARRAY----
+
+    b= array1 + array2
+-----------------------------------------------
+
+
+
+
+----find length ----
+
+    repeat(count)
+   
+----repeat array ----
+
+    fill(value, start, end) -->fill("kiwi",0,2)
+---------------------------------------------
+
+
+
+
+-----find mathches in string if not found then return null-----
+
+    replace(old,new)
+    replaceAll(old,new)
+   
+   
+   
+----add and remove space and character----
+
+    padStart()
+    trimEnd()
+     slice(start,end)       ---->string and array both
+     substring()
+
+---convert string to array return new array with sperator---
+
+     toString()  
+-----reuturn array as string ----
+     pop()   
+     push("sds")
+     splice(index,deleteitemcount,item1,item2)
+    
+----------sort array element and reverse array-------------
+     reverse()
+         
+-------check condition and return new array-----
+     filter(function(currentValue, index, arr), thisValue)  ---->check only filter value and return all value
+     reduce(function(total, currentValue, currentIndex, arr), initialValue)     
+    
+    
+    
+         
+
+//////////-------------object--------/////////////
+  //convert in object to array
+// console.log(Object.keys(a))
+// console.log(Object.values(a))
+// console.log(Object.entries(a))   
+     
+    
+    	
+
+
+///////------loop----------//////////
+for in --> array index -- object keys
+for of -->  values – [array,map,set,string]
+for(let key of object_name{
+console.log(key);
+
+
+
+
+
+
+
+
+
+---------Dom ------------
+****.way to print
+1.console.log()
+2.alert()
+3.document.write()
+
+***.ways to get element
+1.document.getElementById("id_name");
+2.document.getElementsByClassName("class_name");
+3.document.getElementByTagName("tag_name");
+4.document.getElementByQueryselector("#id_name");
+5.document.getElementByQueryselectorAll("#id_name");  --> get element using loop
+
+--------------------------------------------------------------------------------------
+
+String methods
+
+----INDEX----
+
+
+====RETURN INDEX NUMBER AND STRING IS NOT PRESENT THEN RETURN -1
+
+    • indexOf("word")
+    • lastIndexOf()
+
+
+----CHARACTER----
+
+====RETURN TRUE AND FALSE VALUE====
+
+    • endsWith("string")
+    • includes()
+    • startsWith()
+
+----ADD ANOTHER STRING----
+
+    • A = string1.concate(string2)
+    • b= string1 + string2
+
+----find length ----
+
+    • string.lenght
+
+
+find mathches in string
+
+      
+
+
+

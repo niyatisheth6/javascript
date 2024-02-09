@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="container">
+      <h3>Signup</h3>
+      <form action="#">
+        <div class="field name-field">
+            <div class="input-field">
+              <input type="text" placeholder="Enter your name" class="name" />
+            </div>
+            <span class="error name-error">
+              <i class="bx bx-error-circle error-icon"></i>
+              <p class="error-text">Please enter a valid name</p>
+            </span>
+          </div>
+        <div class="field email-field">
+          <div class="input-field">
+            <input type="email" placeholder="Enter your email" class="email" />
+          </div>
+          <span class="error email-error">
+            <i class="bx bx-error-circle error-icon"></i>
+            <p class="error-text">Please enter a valid email</p>
+          </span>
+        </div>
+        <div class="field phone-field">
+            <div class="input-field">
+              <input type="tel" placeholder="Enter your phone" class="phone" maxlength="10"/>
+            </div>
+            <span class="error phone-error">
+              <i class="bx bx-error-circle error-icon"></i>
+              <p class="error-text">Please enter a valid number</p>
+            </span>
+          </div>
+        <div class="field button-field input-field">
+          <input type="submit" value="Submit Now" />
+        </div>
+      </form>
+    </div>
+    <script src="index.js"></script>
+  </body>
+</html>

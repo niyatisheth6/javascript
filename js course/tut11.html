@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>tut-11</title>
+</head>
+<body>
+    <h1>this is tutotial-11</h1>
+    <div>
+        <span title="hello" id="hi">Hello</span>
+        <span id="bye">Bye</span>
+    </div>
+    <script>
+        //create html element
+        // const body = document.body
+        // const div= document.createElement('div');
+        // div.innerHTML="<h1>hello world</h1>";
+        // body.append(div);
+
+        // const body = document.body
+        // const div = document.querySelector('div');
+        // const span1 = document.querySelector('#hi');
+        // const span2 = document.querySelector('#bye');
+
+        // span1.remove();
+        // div.removeChild(span2);    
+        
+        
+        function cal(price, taxes, description){
+            taxes = taxes ?? 0.05
+            description = description ?? "Default item"
+            const total = price * (1 + taxes)
+            console.log(`%c${description} with taxt:%c $${total}`, "font-weight:bold","color:green " )
+        }
+        cal(100,0.07,"My item");
+        cal(100,0,"My item");
+        cal(100,0.07,"");
+
+    </script>
+</body>
+</html>

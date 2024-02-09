@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>simple table static</title>
+    <style>
+        table{
+            border: 1px solid black;
+            max-width: 500px;
+            width: 100%;
+        }
+        th{
+            font-weight: 600;
+            border: 1px solid black;
+            padding:5px;
+        }
+        td{
+            padding:5px;
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+    <table>
+        <tr>
+            <th>Mainland</th>
+            <th>Country</th>
+            <th>city</th>
+        </tr>
+        <tr>
+            <td rowspan="4">Asia</td>
+            <td rowspan="2">India</td>
+            <td>Ahmedabad</td>
+        </tr>
+        <tr>
+            <td>Surat</td>
+        </tr>
+        <tr>
+            <td rowspan="2">Japan</td>
+            <td>tokyo</td>
+        </tr>
+        <tr>
+            <td>kyoto</td>
+        </tr>
+        <tr>
+            <td>North America</td>
+            <td>Mexico</td>
+            <td>Mexico City</td>
+        </tr>
+    </table>
+</body>
+</html>

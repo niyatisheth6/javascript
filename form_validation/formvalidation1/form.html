@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style>
+      body {
+        font-family: Arial, Helvetica, sans-serif;
+      }
+      * {
+        box-sizing: border-box;
+      }
+
+      input:not([type="submit"]),
+      select,
+      textarea {
+        width: 100%;
+        padding: 12px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+        margin-top: 6px;
+        margin-bottom: 16px;
+        resize: vertical;
+      }
+
+      input[type="submit"] {
+        background-color: #04aa6d;
+        color: white;
+        padding: 12px 20px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+      }
+
+      input[type="submit"]:hover {
+        background-color: #45a049;
+      }
+
+      .container {
+        border-radius: 5px;
+        background-color: #f2f2f2;
+        padding: 20px;
+      }
+      #message,
+      #pw,
+      #pww,
+      #email,
+      #num {
+        color: red;
+      }
+    </style>
+    <title>form validation</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+        <h2>REGISTRATION FORM</h2>
+      </div>
+      <form class="form" id="form">
+        <div class="form-control">
+          <label>Username</label>
+          <input
+            type="text"
+            name=""
+            id="username"
+            placeholder="Enter yout Name"
+          />
+        </div>
+        <div class="form-control">
+          <label>Email</label>
+          <input
+            type="email"
+            name=""
+            id="email"
+            placeholder="Enter yout Email"
+          />
+        </div>
+        <div class="form-control">
+          <label>Mobile number</label>
+          <input
+            type="tel"
+            name=""
+            id="phone"
+            placeholder="Enter yout Number"
+          />
+        </div>
+        <div class="form-control">
+          <label>Password</label>
+          <input
+            type="password"
+            name=""
+            id="pass"
+            placeholder="Enter yout password"
+          />
+        </div>
+        <div class="form-control">
+          <label>Confirm password</label>
+          <input
+            type="password"
+            name=""
+            id="cpass"
+            placeholder="Confirm your password"
+          />
+        </div>
+        <input type="submit" value="Submit" class="btn" />
+      </form>
+    </div>
+
+    <script>
+      const form = document.getElementById("form");
+      const username = document.getElementById("username");
+      const email = document.getElementById("email");
+      const phone = document.getElementById("phone");
+      const pass = document.getElementById("pass");
+      const cpass = document.getElementById("cpass");
+
+      // add event
+      form.addEventListener("submit", (event) => {
+        event.preventDefault();
+        validate();
+      })
+
+      
+      const isEmail = (emailval) => {
+        var atsymbol = emailval.indexOf("@");
+        if(atsymbol <1) return false;
+        var dot = emailval.lastindexOf('.');
+        if(dot <= atsymbol + 3) return false;
+      }
+
+      // define the validate function
+      const validate = () => {
+        const usernameval = username.value.trim();
+        const emailval = email.value.trim();
+        const phoneval = phone.value.trim();
+        const passval = pass.value.trim();
+        const cpassval = cpass.value.trim();
+
+        //validate username
+        if(usernameval === ""){
+            setErrormsg(username, 'username can not be blank');
+        }
+        else if(usernameval.length <= 2){
+            setErrormsg(username, 'username min 3 char');
+        }
+        else{
+            setSuccessMsg(username);
+        }
+
+        //validate Email
+        if(emailval === ""){
+            setErrormsg(email, 'email can not be blank');
+        }
+        else if(!isEmail(emailval)){
+            setErrormsg(emailval, 'Not a valid email');
+        }
+        else{
+            setSuccessMsg(email);
+        }
+      }
+    </script>
+  </body>
+</html>

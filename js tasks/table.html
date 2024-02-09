@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>table</title>
+    <style>
+      table {
+        border: 1px solid black;
+      }
+
+      td,
+      th {
+        padding: 20px;
+        border: 1px solid black;
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- <table id="user"></table> -->
+    <div id="myTable"></div>
+    <script>
+      var jsonData = [
+        {
+          Mainland: ["Asia"],
+          Country: ["Japan"],
+          City: ["Tokyo"],
+        },
+
+        {
+          Mainland: ["Asia"],
+          Country: ["India"],
+          City: ["Ahmedabad"],
+        },
+        {
+          Mainland: ["Asia"],
+          Country: ["India"],
+          City: ["Surat"],
+        },
+
+        {
+          Mainland: ["North America"],
+          Country: ["Mexico"],
+          City: ["Mexico City"],
+        },
+        {
+          Mainland: ["Asia"],
+          Country: ["Japan"],
+          City: ["Kyoto"],
+        },
+      ];
+      // var table = document.getElementById("user");
+      // var tbody = document.getElementsByTagName("tbody");
+      var result = {};
+      
+      const tableData = jsonData.map((ele) => {
+        var mainland = ele.Mainland[0];
+        var country = ele.Country[0];
+        var city = ele.City[0];
+      
+        if (!result[mainland]) {
+          result[mainland] = {};
+          result[mainland].total = 0;
+        }
+
+        if (!result[mainland][country]) {
+          result[mainland][country] = [];
+        }
+
+        if (result[mainland][country].push(city)) {
+          result[mainland].total++;
+        }
+      });
+
+      // //headercontent
+      // var header = Object.keys(jsonData[0]);
+      // let headercontent = "<tr>";
+      // for (let i = 0; i < header.length; i++) {
+      //   headercontent += "<th>" + header[i] + "</th>";
+      // }
+      // headercontent += "</tr>";
+      // table.innerHTML = headercontent;
+
+      const myTable = document.getElementById("myTable");
+      debugger;
+      let finalTable = "<table>";
+      for (let mainland of Object.keys(result)) {
+        let mainlandRowspan = result[mainland].total;
+        for (let country of Object.keys(result[mainland])) {
+          let countryRowspan = result[mainland][country].length;
+          for (let i = 0; i < result[mainland][country].length; i++) {
+            const city = result[mainland][country][i];
+
+            finalTable += `<tr>`;
+            if (mainlandRowspan) {
+              finalTable += `<td rowspan="${mainlandRowspan}">${mainland}</td>`;
+            }
+
+            if (countryRowspan) {
+              finalTable += `<td rowspan="${countryRowspan}">${country}</td>`;
+            }
+            finalTable += `<td>${city}</td>`;
+            finalTable += `</tr>`;
+
+            mainlandRowspan = false;
+            countryRowspan = false;
+          }
+        }
+      }
+      finalTable += "</table>";
+
+      myTable.innerHTML= finalTable
+     
+
+      // for (let mainland of Object.keys(result)) {
+      //   let mainlandRowspan = result[mainland].total;
+      //   let mainlandData = document.createElement("td");
+      //   mainlandData.innerHTML = mainland;
+      //   mainlandData.setAttribute("rowspan", mainlandRowspan);
+      //   let done1 = false;
+      //   for (let country of Object.keys(result[mainland])) {
+      //     let countryRowspan = result[mainland][country].length;
+      //     let countryData = document.createElement("td");
+      //     countryData.innerHTML = country;
+      //     countryData.setAttribute("rowspan", countryRowspan);
+      //     let done2 = false;
+      //     for (let i = 0; i < result[mainland][country].length; i++) {
+      //       let city = result[mainland][country][i];
+      //       let cityData = document.createElement("td");
+      //       cityData.innerHTML = city;
+      //       const tr = document.createElement("tr");
+      //       !done1 && tr.appendChild(mainlandData) && (done1 = true);
+      //       !done2 && tr.appendChild(countryData) && (done2 = true);
+      //       tr.appendChild(cityData);
+      //       table.appendChild(tr);
+      //     }
+      //   }
+      // }
+    </script>
+  </body>
+</html>

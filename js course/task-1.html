@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Task</title>
+  </head>
+  <body>
+    <h1>hello world</h1>
+    <script>
+      const users = [
+        {
+          id: 1,
+          name: "Jack",
+          isActive: true,
+          salary: 1000,
+        },
+        {
+          id: 2,
+          name: "John",
+          isActive: true,
+          salary: 2000,
+        },
+        {
+          id: 3,
+          name: "Mike",
+          isActive: false,
+          salary: 3000,
+        },
+        {
+          id: 3,
+          name: "Mike",
+          isActive: false,
+          salary: 3000,
+        },
+      ];
+      // console.log(users.map(getNames));
+      // function getNames(username){
+      //     return username.name;
+      // }
+// --------------------------------------------------------------------------------------------------------------
+      //tast 1 get name in array object
+      // function getName(users){
+      //    return users.map((user) => {
+      //         return user.name;
+      //     })
+      // }
+      // console.log(getName(users));
+// --------------------------------------------------------------------------------------------------------------
+
+      //tast 2 get true or false
+      // function checkUser(name){
+      //     return users.some(user => user.name === name);
+      // }
+      // console.log(checkUser("John"));
+// --------------------------------------------------------------------------------------------------------------
+
+      //using foreach loop
+      // function chackUser(name){
+      //     users.forEach(user =>{
+      //       if(user.name === name){
+      //       console.log("true");
+      //     }
+      //     else{
+      //       console.log("false");
+      //     }
+      //     })
+      //   }
+      //   chackUser("John");
+// --------------------------------------------------------------------------------------------------------------
+
+      //using forloop
+      // function chackUser(name) {
+      //   const result = false;
+      //   for (let i = 0; i < users.length; i++) {
+      //     if (users[i].name == name) {
+      //       console.log("true");
+      //       result = true;
+      //       break;
+      //     }
+      //   }
+      //   return result;
+      // }
+      // console.log(chackUser("John"));
+// --------------------------------------------------------------------------------------------------------------
+
+      //task-3 pass name and find  all element of that name
+      // function checkUser(name){
+      //  var user = users.find(user => user.name === name);
+      //   console.log(user);
+      // }
+      // checkUser("Mike");
+// --------------------------------------------------------------------------------------------------------------
+
+      //pass name and get all elements using find
+      //  function checkUser(name){
+      //    var user = users.filter(
+      //     function (user){
+      //       return user.name === name;
+      //     }
+      //     );
+      //     console.log(user);
+      //   }
+      //   checkUser("Mike");
+// --------------------------------------------------------------------------------------------------------------
+
+      //pass name and get all elements using filter
+      //  function checkUser(name){
+      //    var user = users.filter(
+      //     function (user){
+      //       return user.name === name;
+      //     }
+      //     );
+      //     console.log(user);
+      //   }
+      //   checkUser("Mike");
+// --------------------------------------------------------------------------------------------------------------
+        //sorting
+        // var age= [34,33,20,45,33,32];
+        // var result = age.sort( function(a,b){
+        //   return a-b;
+        // })
+        // console.log(result);
+// --------------------------------------------------------------------------------------------------------------
+// //sorting with array of object
+//         let employees = [
+//     {
+//         firstName: 'John',
+//         lastName: 'Doe',
+//         age: 27,
+//         joinedDate: 'December 15, 2017'
+//     },
+
+//     {
+//         firstName: 'Ana',
+//         lastName: 'Rosy',
+//         age: 25,
+//         joinedDate: 'January 15, 2019'
+//     },
+
+//     {
+//         firstName: 'Zion',
+//         lastName: 'Albert',
+//         age: 30,
+//         joinedDate: 'February 15, 2011'
+//     }
+// ];
+// function sort(){
+//   return employees.sort(function(a,b){
+//     return a.age - b.age;
+//   })
+// }
+// console.log(sort());
+
+
+// var result = employees.sort(function (a,b){
+//   return a.age - b.age;
+
+// })
+// console.log(result); 
+
+
+// task add 4 between to element
+// var numbers = [1,2,3,5,6];
+// function add(){
+//   numbers.splice(3,0,4);
+//  return numbers
+// //  console.log(numbers.splice(3,0,4));
+// }
+// console.log(add());
+
+
+// var numbers = [1,2,3,5,6];
+// function add(){
+//   numbers.splice(3,0,4);
+//  return numbers
+// //  console.log(numbers.splice(3,0,4));
+// }
+// console.log(add());
+
+// const numbers = [1,2,3,5,6];
+//  numbers.splice(3,0,4);
+// console.log(numbers);
+  </script>
+  </body>
+</html>

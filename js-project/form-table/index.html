@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="css/style.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <section
+      class="flex flex-col justify-center antialiased bg-gray-100 text-gray-600 min-h-screen p-4"
+    >
+      <div class="h-full flex flex-col items-end">
+        <!-- Table -->
+        <button
+          class="py-2 px-6 bg-blue-500 text-white rounded hover:bg-blue-700 w-fit mb-6"
+          onclick="toggleModal()"
+        >
+          Add New Data
+        </button>
+        <div
+          class="w-full max-w-2xl mx-auto bg-white shadow-lg rounded-sm border border-gray-200"
+        >
+          <header class="px-5 py-4 border-b border-gray-100">
+            <h2 class="font-semibold text-gray-800">Customers</h2>
+          </header>
+          <div class="p-3">
+            <div class="overflow-x-auto">
+              <table class="table-auto w-full">
+                <thead
+                  class="text-xs font-semibold uppercase text-gray-400 bg-gray-50"
+                >
+                  <tr>
+                    <th class="p-2 whitespace-nowrap">
+                      <div class="font-semibold text-left">Id</div>
+                    </th>
+                    <th class="p-2 whitespace-nowrap">
+                      <div class="font-semibold text-left">Name</div>
+                    </th>
+                    <th class="p-2 whitespace-nowrap">
+                      <div class="font-semibold text-left">Email</div>
+                    </th>
+                    <th class="p-2 whitespace-nowrap">
+                      <div class="font-semibold text-left">DOB</div>
+                    </th>
+                    <th class="p-2 whitespace-nowrap">
+                      <div class="font-semibold text-left">Phone</div>
+                    </th>
+                    <th class="p-2 whitespace-nowrap">
+                      <div class="font-semibold text-center">City</div>
+                    </th>
+                    <th class="p-2 whitespace-nowrap">
+                      <div class="font-semibold text-left">Action</div>
+                    </th>
+                  </tr>
+                </thead>
+                <tbody class="text-sm divide-y divide-gray-100">
+                  <tr>
+                    <td class="p-2 whitespace-nowrap">1</td>
+                    <td class="p-2 whitespace-nowrap">alex</td>
+                    <td class="p-2 whitespace-nowrap">alexshatov@gmail.com
+                    </td>
+                    <td class="p-2 whitespace-nowrap">7-12-99</td>
+                    <td class="p-2 whitespace-nowrap">9997676767</td>
+                    <td class="p-2 whitespace-nowrap">surat</td>
+                    <td class="p-2 whitespace-nowrap">add & delete</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- //modal  -->
+
+    <div
+      class="fixed z-10 overflow-y-auto top-0 w-full left-0 "
+      id="modal"
+    >
+      <div
+        class="flex items-center justify-center min-height-100vh pt-4 px-4 pb-20 text-center sm:block sm:p-0"
+      >
+        <div class="fixed inset-0 transition-opacity">
+          <div class="absolute inset-0 bg-gray-900 opacity-75"></div>
+          <span class="hidden sm:inline-block sm:align-middle sm:h-screen"
+            >&#8203;</span
+          >
+          <div
+            class="inline-block align-center bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="modal-headline"
+          >
+            <div class="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
+              <label>Name</label>
+              <input type="text" class="w-full bg-gray-100 p-2 mt-2 mb-3 required" name="name" value="dsf"/>
+              <span id="name_error"></span>
+              <br>
+              <label>Email</label>
+              <input type="text" class="w-full bg-gray-100 p-2 mt-2 mb-3 required" name="email" />
+              <span id="email_error"></span>
+              <br>
+              <label>DOB</label>
+              <input type="date" class="w-full bg-gray-100 p-2 mt-2 mb-3 required" name="dob" />
+              <span id="dob_error"></span>
+              <br>
+              <label>Phone</label>
+              <input type="phone" class="w-full bg-gray-100 p-2 mt-2 mb-3 required" maxlength="10" name="phone" value="9345643456"/>
+              <span id="phone_error"></span>
+              <br>
+              <label>City</label>
+              <input type="text" class="w-full bg-gray-100 p-2 mt-2 mb-3 required" name="city" value="gfd"/>
+              <span id="city_error"></span>
+              <br>
+            </div>
+            <div class="bg-gray-200 px-4 py-3 text-right">
+                <span id="error"></span>
+              <button
+                type="button"
+                class="py-2 px-4 bg-gray-500 text-white rounded hover:bg-gray-700 mr-2"
+                onclick="toggleModal()"
+              >
+                <i class="fas fa-times"></i> Cancel
+              </button>
+              <button
+                type="button"
+                class="py-2 px-4 bg-blue-500 text-white rounded hover:bg-blue-700 mr-2" id="btn"
+              >
+                <i class="fas fa-plus"></i> Submit
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="js/form.js"></script>
+  </body>
+</html>

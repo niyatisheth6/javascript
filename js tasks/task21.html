@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>task-21-dynamic emplyee table</title>
+    <style>
+      table {
+        border: 1px solid black;
+        max-width: 500px;
+        width: 100%;
+      }
+      th {
+        font-weight: 600;
+        border: 1px solid black;
+        padding: 5px;
+      }
+      td {
+        padding: 5px;
+        border: 1px solid black;
+      }
+    </style>
+  </head>
+  <body>
+    <table id="display_json_data"></table>
+    <script>
+      var employeeJson = [
+        {
+          "Employee Name": "Nitin Singh",
+          Address: "Hyderabad",
+          "Email ID": "nitin.singh@gmail.com",
+          Age: 25,
+        },
+        {
+          "Employee Name": "Pawan Patil",
+          Address: "Delhi",
+          "Email ID": "pawan.patil@gmail.com",
+          Age: 28,
+        },
+        {
+          "Employee Name": "Rajeev Kumar",
+          Address: "Noida",
+          "Email ID": "rajeev.kumar@gmail.com",
+          Age: 25,
+        },
+        {
+          "Employee Name": "Jhon Smith",
+          Address: "New Yark",
+          "Email ID": "smith.jh@gmail.com",
+          Age: 22,
+        },
+      ];
+
+      function createTable() {
+        //get all key for header
+        let headers = Object.keys(employeeJson[0]);
+        //header data
+        let headerDataHtml = '<tr>'
+            for(let i =0 ; i< headers.length ; i++){
+                headerDataHtml += '<th>'+headers[i]+'</th>'
+            }
+        headerDataHtml +='</tr>'
+        //table data
+        let allDataHtml = '';
+        for(let i = 0 ; i < employeeJson.length ; i++){
+           allDataHtml+='<tr>'
+            for(let j = 0 ; j<headers.length;j++){
+                let header = headers[j]
+                allDataHtml += '<td>'+employeeJson[i][header]+'</td>'
+
+            }
+            allDataHtml +='</tr>'
+
+        }
+        //display table data
+        let table = document.getElementById('display_json_data');
+        table.innerHTML=headerDataHtml+allDataHtml;
+      }
+      window.onload = createTable();
+    </script>
+  </body>
+</html>

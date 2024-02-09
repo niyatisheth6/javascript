@@ -1,0 +1,12 @@
+ *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+ }   
+ :root {
+    --lg-lightcolor : linear-gradient(to left, rgba(166, 235, 213, 0.6), rgba(159, 172, 230, 0));
+    --lg-color:linear-gradient(to left, #74ebd5, #9face6);
+ }
+ body{
+    
+ }
